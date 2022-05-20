@@ -1,8 +1,8 @@
 const express = require('express');
 const routes = express.Router();
-const FavoritarValidator = require("./Validators/Favoritar");
+/*const FavoritarValidator = require("./Validators/Favoritar");
 const PetValidator = require("./Validators/PetValidator");
-const UsuarioValidator = require("./Validators/UsuarioValidator");
+const UsuarioValidator = require("./Validators/UsuarioValidator");*/
 
 const UsuarioController = require("./controllers/UsuarioController");
 const PetController = require("./controllers/PetController");
@@ -77,7 +77,7 @@ const testePets = [
 
 //Usuarios
 routes.get("/usuarios/:usuario_id", UsuarioController.getByUsuario);
-routes.post("/usuarios/", UsuarioController.create);
+routes.post("/usuarios", UsuarioController.create);
 routes.put("/usuarios/:usuario_id", UsuarioController.update);
 routes.delete("/usuarios/:usuario_id", UsuarioController.delete);
 

@@ -1,10 +1,11 @@
 const UsuarioModel = require("../Models/Usuario");
 
 module.exports = {
-    async create(request,response){
+    async create(request, response){
         try{
 
             const newUsuario = request.body;
+            console.log(newUsuario);
             const result = await UsuarioModel.create(newUsuario);
             return response.status(200).json({usuario_id: result});
 
