@@ -7,16 +7,17 @@ module.exports = {
 
         const usuario_id = uuidv4();
         usuario.usuario_id = usuario_id;
-        const result = await connection("usuario")
+        await connection("usuario")
             .insert(usuario);
-        return result;
+        return usuario_id;
     },
 
     async getById( { usuario_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
 
         const result = await connection("usuario")
             .where({ usuario_id })
-            .select("*");
+            .select("*")
+            .first();
         return result;
 
     },

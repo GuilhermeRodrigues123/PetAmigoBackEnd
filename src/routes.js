@@ -1,8 +1,12 @@
 const express = require('express');
 const routes = express.Router();
 
+const UsuarioController = require("./controllers/UsuarioController");
+const PetController = require("./controllers/PetController");
+const FavoritarController = require("./controllers/FavoritarController");
 
-const testeUsers = [
+
+/*const testeUsers = [
 
     { 
         usuario_id: 1,
@@ -66,7 +70,21 @@ const testePets = [
         nome: "pet5",
         porte: "cachorro"
     },
-]
+]*/
+
+//Usuarios
+routes.get("/usuarios/:usuario_id", UsuarioController.getByUsuario);
+routes.post("/usuarios/", UsuarioController.create);
+routes.put("/usuarios/:usuario_id", UsuarioController.update);
+routes.delete("/usuarios/:usuario_id", UsuarioController.delete);
+
+//Pets
+routes.get("/pets/:pet_id", PetController.getByPet);
+routes.post("/pets/", PetController.create);
+routes.put("/pets/:pet_id", PetController.update);
+routes.delete("/pets/:pet_id", PetController.delete);
+
+
 
 routes.get('/users', (req,res) => { //acessar o usuario
     const query = req.query;
