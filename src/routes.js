@@ -35,6 +35,39 @@ const testeUsers = [
     },
 ]
 
+const testePets = [
+
+    { 
+        pet_id: 1,
+        nome: "pet1",
+        porte: "gato"
+    },
+
+    { 
+        pet_id: 2,
+        nome: "pet2",
+        porte: "gato"
+    },
+
+    { 
+        pet_id: 3,
+        nome: "pet3",
+        porte: "gato"
+    },
+
+    { 
+        pet_id: 4,
+        nome: "pet4",
+        porte: "cachorro"
+    },
+
+    { 
+        pet_id: 5,
+        nome: "pet5",
+        porte: "cachorro"
+    },
+]
+
 routes.get('/users', (req,res) => { //acessar o usuario
     const query = req.query;
     console.log(req);
@@ -65,16 +98,41 @@ routes.put('/users/:userId', (req,res) => { //criar novo usuario
 
 });
 
-/*routes.delete('/users/:userId', (req,res) => { //criar novo usuario
-    const userId  = Usuario.deleteOne({_id: req.params.id}, (err) => {
-        if(err) return res.send(err)
-        res.json({ message: 'Apagado com sucesso!' })
-    });
+routes.delete('/users/:userId', (req,res) => { 
+    const { userId }  = req.params;
+
+        return res.status(200).json(testeUsers);
+});
     
 
+routes.get('/pets', (req,res) => { //acessar o usuario
+    const query = req.query;
+    console.log(req);
+    res.status(200).json(testePets);
+});
+
+routes.post('/Pets', (req,res) => { //criar novo usuario
+    const newPet = req.body; //receber novo usuário de algum lugar (corpo da requisição)
+
+    testePets.push(newPet);
     res.status(200).json({ message: "criado com sucesso." });
+});
 
-});*/
+routes.put('/pets/:petId', (req,res) => { //criar novo usuario
+    const { petId } = req.params;
+    const newFields = req.body; //receber novo usuário de algum lugar (corpo da requisição)
+    
+    let selectedIndex;
+    let selected = testePets.find( (pet, index) => {
+        selectedIndex = index;
+        return pet.id === petId; 
+    });
+    selected = { ...selected, ...newFields };
 
+    testePets[selectedIndex] = selected;
+
+    res.status(200).json({ message: "apagado com sucesso." })
+
+});
 
 module.exports = routes;
