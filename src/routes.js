@@ -1,6 +1,8 @@
 const express = require('express');
 const routes = express.Router();
-
+const FavoritarValidator = require("./Validators/Favoritar");
+const PetValidator = require("./Validators/PetValidator");
+const UsuarioValidator = require("./Validators/UsuarioValidator");
 
 const testeUsers = [
 
