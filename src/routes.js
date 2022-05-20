@@ -1,6 +1,9 @@
 const express = require('express');
 const routes = express.Router();
 
+const FavoritarController=require("./controllers/FavoritarController");
+const PetController=require("./controllers/PetController");
+const UsuarioController=require("./controllers/UserController");
 
 const testeUsers = [
 
@@ -34,40 +37,25 @@ const testeUsers = [
         email: "teste5@email5.com",
     },
 ]
+//favoritar
+routes.get();
+routes.post();
+routes.put();
+routes.delete();
 
-const testePets = [
+//pets
+routes.get("/pets/:pet_id", PetController.getById);
+routes.post("/pets", PetController.create);
+routes.put("/pets/:pet_id", PetController.update);
+routes.delete("/pets/:pet_id", PetController.delete);
 
-    { 
-        pet_id: 1,
-        nome: "pet1",
-        porte: "gato"
-    },
+//usuário
+routes.get("/users/:user_id", UserController.getById);
+routes.post("/users", UserController.create);
+routes.put("/users/:user_id", UserController.update);
+routes.delete("/users/:user_id", UserController.delete);
 
-    { 
-        pet_id: 2,
-        nome: "pet2",
-        porte: "gato"
-    },
-
-    { 
-        pet_id: 3,
-        nome: "pet3",
-        porte: "gato"
-    },
-
-    { 
-        pet_id: 4,
-        nome: "pet4",
-        porte: "cachorro"
-    },
-
-    { 
-        pet_id: 5,
-        nome: "pet5",
-        porte: "cachorro"
-    },
-]
-
+/*
 routes.get('/users', (req,res) => { //acessar o usuario
     const query = req.query;
     console.log(req);
@@ -96,7 +84,7 @@ routes.put('/users/:userId', (req,res) => { //criar novo usuario
 
     res.status(200).json({ message: "apagado com sucesso." })
 
-});
+});*/
 
 routes.delete('/users/:userId', (req,res) => { 
     const { userId }  = req.params;
