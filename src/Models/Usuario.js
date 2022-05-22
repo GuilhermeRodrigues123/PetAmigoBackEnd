@@ -7,8 +7,7 @@ module.exports = {
 
         const usuario_id = uuidv4();
         usuario.usuario_id = usuario_id;
-        await connection("usuario")
-            .insert(usuario);
+        await connection("usuario").insert(usuario);
         return usuario_id;
     },
 

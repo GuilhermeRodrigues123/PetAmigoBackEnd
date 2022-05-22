@@ -1,48 +1,13 @@
 const UsuarioModel = require("../Models/Usuario");
 
-const testeUsers = [
-
-    {
-        usuario_id: 1,
-        name: "teste1",
-        email: "teste1@email1.com",
-    },
-
-    {
-        usuario_id: 2,
-        name: "teste2",
-        email: "teste2@email2.com",
-    },
-
-    {
-        usuario_id: 3,
-        name: "teste3",
-        email: "teste3@email3.com",
-    },
-
-    {
-        usuario_id: 4,
-        name: "teste4",
-        email: "teste4@email4.com",
-    },
-
-    {
-        usuario_id: 5,
-        name: "teste5",
-        email: "teste5@email5.com",
-    },
-]
-
-
 module.exports = {
     async create(request, response) {
         try {
+            const query = request.query;
             const newUsuario = request.body;
             console.log(newUsuario);
-            testeUsers.push(newUsuario);
             const result = await UsuarioModel.create(newUsuario);
-            return response.status(200).json({usuario_id: result});
-
+            return response.status(200).json({ usuario_id: result });
 
         } catch (error) {
             console.log("User creation failed. " + error);

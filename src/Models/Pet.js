@@ -7,9 +7,8 @@ module.exports = {
 
         const pet_id = uuidv4();
         pet.pet_id = pet_id;
-        const result = await connection("pet")
-            .insert(pet);
-        return result;
+        await connection("pet").insert(pet);
+        return pet_id;
     },
 
     async getById( { pet_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.

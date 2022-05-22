@@ -13,8 +13,38 @@ const PetValidator = require("./validators/PetValidator");
 const FavoritarController = require("./controllers/FavoritarController");
 const FavoritoValidator = require("./validators/FavoritarValidator");
 
+const testeUsers = [
 
+    {
+        usuario_id: 1,
+        name: "teste1",
+        email: "teste1@email1.com",
+    },
 
+    {
+        usuario_id: 2,
+        name: "teste2",
+        email: "teste2@email2.com",
+    },
+
+    {
+        usuario_id: 3,
+        name: "teste3",
+        email: "teste3@email3.com",
+    },
+
+    {
+        usuario_id: 4,
+        name: "teste4",
+        email: "teste4@email4.com",
+    },
+
+    {
+        usuario_id: 5,
+        name: "teste5",
+        email: "teste5@email5.com",
+    },
+]
 const testePets = [
 
     {
@@ -60,8 +90,13 @@ routes.post("/pets/", PetValidator.create, PetController.create);
 routes.put("/pets/:pet_id", PetValidator.update, PetController.update);
 routes.delete("/pets/:pet_id", PetValidator.delete, PetController.delete);
 
+//Favoritos
+//routes.get("/pets/:user_id", FavoritarValidator.getById, FavoritarController.getById);
+//routes.post("/pets/:user_id", FavoritarValidator.create, FavoritarController.create);
+//routes.delete("/pets/:user_id", FavoritarValidator.delete, FavoritarController.delete);
 
 
+/*
 routes.get('/users', (req, res) => { //acessar o usuario
     const query = req.query;
     console.log(req);
@@ -128,5 +163,5 @@ routes.put('/pets/:petId', (req, res) => { //criar novo usuario
     res.status(200).json({ message: "apagado com sucesso." })
 
 });
-
+*/
 module.exports = routes;
