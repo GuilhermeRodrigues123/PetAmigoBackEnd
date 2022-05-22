@@ -10,38 +10,35 @@ const UsuarioValidator = require("./validators/Usuariovalidator");
 const PetController = require("./controllers/PetController");
 const PetValidator = require("./validators/PetValidator");
 
-const FavoritarController = require("./controllers/FavoritarController");
-const FavoritoValidator = require("./validators/FavoritarValidator");
-
 const testeUsers = [
 
     {
         usuario_id: 1,
-        name: "teste1",
+        nome: "teste1",
         email: "teste1@email1.com",
     },
 
     {
         usuario_id: 2,
-        name: "teste2",
+        nome: "teste2",
         email: "teste2@email2.com",
     },
 
     {
         usuario_id: 3,
-        name: "teste3",
+        nome: "teste3",
         email: "teste3@email3.com",
     },
 
     {
         usuario_id: 4,
-        name: "teste4",
+        nome: "teste4",
         email: "teste4@email4.com",
     },
 
     {
         usuario_id: 5,
-        name: "teste5",
+        nome: "teste5",
         email: "teste5@email5.com",
     },
 ]
@@ -89,11 +86,6 @@ routes.get("/pets/:pet_id", PetValidator.getById, PetController.getById);
 routes.post("/pets/", PetValidator.create, PetController.create);
 routes.put("/pets/:pet_id", PetValidator.update, PetController.update);
 routes.delete("/pets/:pet_id", PetValidator.delete, PetController.delete);
-
-//Favoritos
-//routes.get("/pets/:user_id", FavoritarValidator.getById, FavoritarController.getById);
-//routes.post("/pets/:user_id", FavoritarValidator.create, FavoritarController.create);
-//routes.delete("/pets/:user_id", FavoritarValidator.delete, FavoritarController.delete);
 
 
 /*

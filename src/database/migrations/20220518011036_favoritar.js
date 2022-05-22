@@ -1,5 +1,6 @@
 exports.up = function(knex) { 
     return knex.schema.createTable("favoritar", function(table) {
+        table.string("favoritar_id").primary().notNullable();
         table.string("usuario_id").notNullable();
         table
            .foreign("usuario_id")
