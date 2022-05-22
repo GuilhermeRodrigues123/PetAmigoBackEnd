@@ -1,4 +1,4 @@
-import { celebrate, Segments, Joi } = require("celebrate");
+const { celebrate, Segments, Joi } = require("celebrate");
 
 module.exports = {
     create: celebrate({

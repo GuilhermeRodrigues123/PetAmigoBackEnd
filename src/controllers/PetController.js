@@ -3,14 +3,13 @@ const PetModel = require("../Models/Pet");
 module.exports = {
     async create(request,response){
         try{
-
             const newPet = request.body;
             const result = await PetModel.create(newPet);
             return response.status(200).json({pet_id: result});
 
-        } catch(err){
+        } catch(error){
 
-            console.log("Pet creation failed. " + err);
+            console.log("Pet creation failed. " + error);
             return response.status(500).json({
                 notification: "Internal server error while trying to create Pet",
             });
@@ -18,14 +17,14 @@ module.exports = {
         }
     },
 
-    async getByPet(request, response){
+    async getById(request, response){
         try {
             const { pet_id } = request.params;
             await PetModel.updateById(pet_id);
             return response.status(200).json({ notification: "Pet get sucessfully"});
         
         }catch (error) {
-            console.log("Pet get failed. " + err);
+            console.log("Pet get failed. " + error);
             return response.status(500).json({
                 notification: "Internal server error while trying to get Pet",
             });
@@ -43,7 +42,7 @@ module.exports = {
 
 
         }catch (error) {
-            console.log("User delete failed. " + err);
+            console.log("User delete failed. " + error);
             return response.status(500).json({
                 notification: "Internal server error while trying to update User",
             });
@@ -57,9 +56,9 @@ module.exports = {
             await PetModel.updateById(pet_id, newPet);
             return response.status(200).json({ notification: "Pet updated sucessfully"});
 
-        } catch(err){
+        } catch(error){
 
-            console.log("Pet update failed. " + err);
+            console.log("Pet update failed. " + error);
             return response.status(500).json({
                 notification: "Internal server error while trying to update Pet",
             });
