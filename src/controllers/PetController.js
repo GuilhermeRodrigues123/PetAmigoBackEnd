@@ -20,7 +20,7 @@ module.exports = {
     async getById(request, response) {
         try {
             const { pet_id } = request.params;
-            await PetModel.updateById(pet_id);
+            await PetModel.getById(pet_id);
             return response.status(200).json({ notification: "Pet get sucessfully" });
 
         } catch (error) {

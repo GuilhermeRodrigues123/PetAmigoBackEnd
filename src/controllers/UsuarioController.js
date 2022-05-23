@@ -21,7 +21,7 @@ module.exports = {
     async getById(request, response) {
         try {
             const { usuario_id } = request.params;
-            await UsuarioModel.updateById(usuario_id);
+            await UsuarioModel.getById(usuario_id);
             return response.status(200).json({ notification: "Usuario get sucessfully" });
 
         } catch (error) {

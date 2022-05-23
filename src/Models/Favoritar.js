@@ -10,18 +10,18 @@ module.exports = {
         return result;
     },
 
-    async getById( { pet_id, usuario_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
+    async getById( { usuario_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
 
         const result = await connection("favoritar")
-            .where({ pet_id, usuario_id })
+            .where({ usuario_id })
             .select("*");
         return result;
 
     },
 
-    async deleteById(pet_id, usuario_id){
+    async deleteById(usuario_id, pet_id){
         const result = await connection("favoritar")
-            .where({ pet_id, usuario_id })
+            .where({ usuario_id,pet_id })
             .delete();
         return result;
     }

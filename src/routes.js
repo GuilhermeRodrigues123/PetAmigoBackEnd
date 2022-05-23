@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router();
-/*const FavoritarValidator = require("./Validators/Favoritar");
-const PetValidator = require("./Validators/PetValidator");
+
+/*const PetValidator = require("./Validators/PetValidator");
 const UsuarioValidator = require("./Validators/UsuarioValidator");*/
 
 const UsuarioController = require("./controllers/UsuarioController");
@@ -9,6 +9,9 @@ const UsuarioValidator = require("./validators/Usuariovalidator");
 
 const PetController = require("./controllers/PetController");
 const PetValidator = require("./validators/PetValidator");
+
+const FavoritarController = require("./controllers/FavoritarController");
+const FavoritarValidator = require("./Validators/FavoritarValidator");
 
 const testeUsers = [
 
@@ -86,6 +89,11 @@ routes.get("/pets/:pet_id", PetValidator.getById, PetController.getById);
 routes.post("/pets/", PetValidator.create, PetController.create);
 routes.put("/pets/:pet_id", PetValidator.update, PetController.update);
 routes.delete("/pets/:pet_id", PetValidator.delete, PetController.delete);
+
+//Favoritar
+routes.get("/favoritos/:usuario_id", FavoritarController.getById);
+routes.post("/favoritos", FavoritarController.create);
+routes.delete("/favoritos/:usuario_id/:pet_id", FavoritarController.delete);
 
 
 /*
