@@ -1,7 +1,7 @@
 const PetModel = require("../Models/Pet");
 
 module.exports = {
-    assync create(request, response){
+    async create(request, response){
         try {
             const newPet = request.body;
             const result = PetModel.create(newPet);
@@ -10,12 +10,12 @@ module.exports = {
         } catch (error) {
             console.warn("Pet creation failed:", error)
             return response.status(500).json({
-                notification: "internal server error while trying to create Pet"
+                notification: "internal server error while trying to create Pet."
             });
         }
     },
 
-    assync getById(request, response){
+    async getById(request, response){
         try {
 
         } catch (err) {
@@ -23,7 +23,7 @@ module.exports = {
         }
     },
 
-    assync update(request, response){
+    async update(request, response){
         try {
             const {pet_id} = request.params;
             const newPet = request.body;
@@ -38,7 +38,7 @@ module.exports = {
         }
     },
 
-    assync delete(request, response){
+    async delete(request, response){
         try {
             const {pet_id} = request.params;
             const result = await PetModel.deleteById(pet_id);
