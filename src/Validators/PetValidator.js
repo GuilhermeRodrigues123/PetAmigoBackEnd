@@ -7,7 +7,12 @@ module.exports = {
             especie: Joi.string().max(10).required(),
             idade: Joi.number().positive().max(200).required(),
             porte: Joi.string().max(10).required(),
+        }),
+        [Segments.HEADERS]: Joi.object().keys({
+
+            authorization: Joi.string().required()
         })
+        .unknown(),
     }),
 
     getById: celebrate({
