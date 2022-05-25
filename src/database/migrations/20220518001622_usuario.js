@@ -4,10 +4,11 @@ exports.up = function(knex) { //exportUp = fazer as alterações desejadas
         table.string("usuario_id").primary().notNullable(); //P.K
         table.string("nome").notNullable();
         table.string("email").notNullable();
-        table.string("senha").notNullable();
+        table.string("senha").nullable();
         table.string("telefone").notNullable();
         table.string("endereco").notNullable();
         table.string("cpf").notNullable();
+        table.string("firebase_id").notNullable();
     });
 };
 

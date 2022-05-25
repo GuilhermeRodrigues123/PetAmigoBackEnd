@@ -1,35 +1,32 @@
-const { createMockUserToken } = require('@firebase/util');
-const firebase = require('firebase/app');
-require('firebase/auth');
+const firebase = require("firebase/app");
+require("firebase/auth");
 
 const firebaseConfig = {
-    apiKey: process.env.APIKEY,
-    authDomain: process.env.AUTHDOMAIN,
-    projectId: process.env.PROJECTID,
-    storageBucket: process.env.STORAGEBUCKET,
-    messagingSenderId: process.env.MESSAGINGSENDERID,
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
+ firebase.initializeApp(firebaseConfig);
 
 module.exports = { 
-    async createNewUser(email, password){
-        try{
+    async createNewUsuario(email, senha){
+ 
         const result = await firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password);
+        .createUserWithEmailAndPassword(email, senha);
 
     return result.user.uid;
-        }catch (error){
-            console.warn(error);
-        }
+       
     },
 
-    async login(email, password){
+    async login(email, senha){
         
        const result = await firebase
        .auth()
-       .signInWithEmailAndPassword(email,password);
+       .signInWithEmailAndPassword(email, senha);
 
        return result.user.uid;
     }
