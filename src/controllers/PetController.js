@@ -17,6 +17,20 @@ module.exports = {
         }
     },
 
+    async getPets(response){
+
+        try {
+            await PetModel.getPets();
+            return response.status(200).json({ notification: "Pet get sucessfully" });
+
+        } catch (error) {
+            console.log("Pet get failed. " + error);
+            return response.status(500).json({
+                notification: "Internal server error while trying to get Pet",
+            });
+        }
+    },
+
     async getById(request, response) {
         try {
             const { pet_id } = request.params;

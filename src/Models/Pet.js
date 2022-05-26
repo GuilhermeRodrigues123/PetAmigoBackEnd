@@ -10,6 +10,14 @@ module.exports = {
         await connection("pet").insert(pet);
         return pet_id;
     },
+    
+    async getPets(){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
+
+        const result = await connection("pet")
+            .select("*");
+        return result;
+
+    },
 
     async getById( { pet_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
 

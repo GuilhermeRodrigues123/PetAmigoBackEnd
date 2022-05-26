@@ -91,6 +91,7 @@ routes.delete("/usuarios/:usuario_id", UsuarioValidator.delete, UsuarioControlle
 
 //Pets
 routes.get("/pets/:pet_id", PetValidator.getById, auth.authenticateToken, PetController.getById);
+routes.get("/pets/petall", PetController.getPets);
 routes.post("/pets/", PetValidator.create, auth.authenticateToken, PetController.create);
 routes.put("/pets/:pet_id", PetValidator.update, auth.authenticateToken, PetController.update);
 routes.delete("/pets/:pet_id", PetValidator.delete, auth.authenticateToken, PetController.delete);

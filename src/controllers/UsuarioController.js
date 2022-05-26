@@ -1,4 +1,3 @@
-
 const UsuarioModel = require("../Models/Usuario");
 const Firebase = require("../utils/Firebase");
 
@@ -27,8 +26,10 @@ module.exports = {
     async getById(request, response) {
         try {
             const { usuario_id } = request.params;
-            await UsuarioModel.getById(usuario_id);
-            return response.status(200).json({ notification: "Usuario get sucessfully" });
+            console.log(usuario_id);
+            const result = await UsuarioModel.getById(usuario_id);
+            return response.status(200).json(result);
+
 
         } catch (error) {
             console.log("User get failed. " + error);
