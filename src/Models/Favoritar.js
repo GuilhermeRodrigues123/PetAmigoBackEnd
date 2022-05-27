@@ -10,7 +10,7 @@ module.exports = {
         return result;
     },
 
-    async getById( { usuario_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
+    async getById( usuario_id ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
 
         const result = await connection("favoritar")
             .where({ usuario_id })

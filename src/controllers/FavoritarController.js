@@ -19,8 +19,8 @@ module.exports = {
     async getById(request, response) {
         try {
             const { usuario_id } = request.params;
-            await FavoritarModel.getById(usuario_id);
-            return response.status(200).json({ notification: "Usuario get sucessfully" });
+            const result = await FavoritarModel.getById(usuario_id);
+            return response.status(200).json( result);
 
         } catch (error) {
             console.log("User get failed. " + error);
