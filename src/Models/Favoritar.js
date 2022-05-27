@@ -14,7 +14,9 @@ module.exports = {
 
         const result = await connection("favoritar")
             .where({ usuario_id })
-            .select("*");
+            .join('pet', 'pet.pet_id', '=', 'favoritar.pet_id')
+            .select('favoritar.*')
+            .select('pet.*')
         return result;
 
     },

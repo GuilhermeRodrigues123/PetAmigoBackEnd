@@ -17,12 +17,13 @@ module.exports = {
         }
     },
 
-    async getPets(response){
+    async getPets(_,response){
 
+        console.log("aaaaa");
         try {
-            await PetModel.getPets();
-            return response.status(200).json({ notification: "Pet get sucessfully" });
-
+            const result = await PetModel.getPets();
+            console.log("lkjfd");
+            return response.status(200).json(result);
         } catch (error) {
             console.log("Pet get failed. " + error);
             return response.status(500).json({
@@ -34,8 +35,8 @@ module.exports = {
     async getById(request, response) {
         try {
             const { pet_id } = request.params;
-            await PetModel.getById(pet_id);
-            return response.status(200).json({ notification: "Pet get sucessfully" });
+            const result = await PetModel.getById(pet_id);
+            return response.status(200).json({ result });
 
         } catch (error) {
             console.log("Pet get failed. " + error);

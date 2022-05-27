@@ -19,7 +19,7 @@ module.exports = {
 
     },
 
-    async getById( { pet_id } ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
+    async getById( pet_id ){ //Função para procurar dentro do banco de dados um usuário pelo ID dele.
 
         const result = await connection("pet")
             .where({ pet_id })

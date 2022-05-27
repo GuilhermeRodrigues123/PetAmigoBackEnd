@@ -90,8 +90,8 @@ routes.put("/usuarios/:usuario_id", UsuarioValidator.update, UsuarioController.u
 routes.delete("/usuarios/:usuario_id", UsuarioValidator.delete, UsuarioController.delete);
 
 //Pets
-routes.get("/pets/:pet_id", PetValidator.getById, auth.authenticateToken, PetController.getById);
 routes.get("/pets/petall", PetController.getPets);
+routes.get("/pets/:pet_id", PetValidator.getById, auth.authenticateToken, PetController.getById);
 routes.post("/pets/", PetValidator.create, auth.authenticateToken, PetController.create);
 routes.put("/pets/:pet_id", PetValidator.update, auth.authenticateToken, PetController.update);
 routes.delete("/pets/:pet_id", PetValidator.delete, auth.authenticateToken, PetController.delete);

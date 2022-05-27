@@ -26,7 +26,6 @@ module.exports = {
     async getById(request, response) {
         try {
             const { usuario_id } = request.params;
-            console.log(usuario_id);
             const result = await UsuarioModel.getById(usuario_id);
             return response.status(200).json(result);
 
